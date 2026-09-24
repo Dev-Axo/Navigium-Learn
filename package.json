@@ -1,0 +1,12 @@
+{
+  "name": "navigium-learn",
+  "version": "1.0.0",
+  "description": "Lern-App für lateinische Vokabeln (Cursus) und die Fabeln des Phaedrus",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test": "python3 tests/smoke.py",
+    "serve": "node build.js && python3 -m http.server 8000"
+  },
+  "license": "MIT"
+}
