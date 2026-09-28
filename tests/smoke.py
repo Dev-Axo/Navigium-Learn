@@ -27,7 +27,11 @@ const g=fs.readFileSync('src/data/gram.js','utf8');
 const G=eval(g.slice(g.indexOf('const GRAM=[')+11, g.indexOf('\\n];', g.indexOf('const GRAM=['))+2));
 const ids=new Set(F.map(x=>x.id));
 const bad=[];
+const T=eval(g.match(/const GTOPICS=(\[[^\]]*\])/)[1]);
 for(const q of G){
+  if(!T.includes(q.t))bad.push('unbekanntes Thema '+q.t);
+  if(q.a<0||q.a>=q.o.length)bad.push((q.f||'allgemein')+': Antwortindex ungueltig');
+  if(!q.f)continue; // allgemeine Aufgabe ohne Fabelvers
   const fab=F.find(x=>x.id===q.f);
   if(!fab){bad.push('unbekannte Fabel '+q.f);continue}
   if(q.v>=fab.v.length){bad.push(q.f+' Vers '+q.v+' existiert nicht');continue}
@@ -41,12 +45,24 @@ for(const x of F){
   if(x.v.some(p=>!p[0]||!p[1]))bad.push(x.id+': Vers ohne Uebersetzung');
   if(!x.voc.length)bad.push(x.id+': keine Vokabeln');
 }
-console.log(JSON.stringify({fables:F.length,gram:G.length,bad}));
+const w=fs.readFileSync('src/data/wissen.js','utf8');
+const W=eval(w.slice(w.indexOf('const GWISSEN=[')+14, w.lastIndexOf(']')+1));
+let ex=0;
+for(const pg of W){
+  if(!T.includes(pg.quiz))bad.push('Wissensseite '+pg.id+': Thema '+pg.quiz+' fehlt');
+  for(const sec of pg.s){
+    if(sec.table)sec.table.rows.forEach((r,i)=>{if(r.length!==sec.table.head.length)bad.push(pg.id+': Tabelle '+sec.h+' Zeile '+i)});
+    if(sec.ex)for(const [fid,v,h] of sec.ex){ex++;const fab=F.find(x=>x.id===fid);
+      if(!fab||v>=fab.v.length){bad.push(pg.id+': Beispiel '+fid+' V'+v);continue}
+      for(const part of h.split(' … '))if(!fab.v[v][0].includes(part))bad.push(pg.id+': "'+part+'" nicht in '+fid+' V'+v)}
+  }
+}
+console.log(JSON.stringify({fables:F.length,gram:G.length,wissen:W.length,ex,bad}));
 """], cwd=ROOT, capture_output=True, text=True)
 if node.returncode: fail(node.stderr.strip())
 res = json.loads(node.stdout)
 if res["bad"]: fail("; ".join(res["bad"][:5]))
-print(f"Daten ok: {len(words)} Cursus-Wörter, {res['fables']} Fabeln, {res['gram']} Grammatikaufgaben")
+print(f"Daten ok: {len(words)} Cursus-Wörter, {res['fables']} Fabeln, {res['gram']} Grammatikaufgaben, {res['wissen']} Erklärseiten mit {res['ex']} Fabel-Beispielen")
 
 # --- Browser-Durchlauf (optional, wenn playwright installiert ist) ---
 try:
@@ -63,6 +79,11 @@ with sync_playwright() as p:
     for tab, sel in [("fab", ".fab"), ("gra", "#gFabs .chip"), ("pro", "#kpis .panel")]:
         pg.click(f'.tabs button[data-tab={tab}]'); pg.wait_for_timeout(400)
         if pg.eval_on_selector_all(sel, "e=>e.length") == 0: fail(f"Tab {tab}: {sel} leer")
+    # jede Erklärseite öffnen
+    pg.click('.tabs button[data-tab=gra]'); pg.wait_for_timeout(300)
+    for wid in pg.eval_on_selector_all("#wGrid .wcard", "es=>es.map(e=>e.dataset.w)"):
+        pg.evaluate(f"openWiki('{wid}','gra')"); pg.wait_for_timeout(80)
+        if pg.eval_on_selector_all("#wBody .wsec", "e=>e.length") == 0: fail(f"Erklärseite {wid} leer")
     # eine Lernrunde
     pg.click('.tabs button[data-tab=vok]'); pg.wait_for_timeout(300)
     pg.eval_on_selector("#heroStart", "e=>e.click()"); pg.wait_for_timeout(400)

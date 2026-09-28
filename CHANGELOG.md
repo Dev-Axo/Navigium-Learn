@@ -1,5 +1,25 @@
 # Änderungen
 
+## 1.2.0
+
+**Grammatik-Erklärungen**
+- 10 Erklärseiten mit Formentabellen, Fabel-Beispielen, Eselsbrücken, Schritt-für-Schritt-Anleitungen und typischen Fehlern
+- Jedes Beispiel zeigt den Vers mit Markierung und Übersetzung und öffnet die Fabel
+- Im Quiz führt „Regel nachlesen“ zur passenden Seite und wieder zurück zur Aufgabe
+
+**Konjunktiv**
+- Eigenes Übungsthema mit 36 Aufgaben: Bildung, Zeitenfolge, Irrealis, Konjunktiv im Hauptsatz
+- Das bisherige Thema „Nebensätze & Konjunktiv“ heißt jetzt „Nebensätze“; der Lernstand wird automatisch übernommen
+
+**Weitere Aufgaben**
+- 6 zusätzliche Aufgaben zum Ablativus absolutus
+- Aufgaben ohne Fabelvers sind möglich (allgemeine Regelfragen)
+
+## 1.1.0
+
+- Partizip-Training: 161 Aufgaben zu 55 von Hand geprüften Partizipstellen (PPP, PPA, PFA, PC, Abl. abs.)
+- Klausur-Kandidaten werden nach Wortzahl, Lektion 26–30 und Partizip-Bilanz sortiert
+
 ## 1.0.0
 
 Erste Fassung.

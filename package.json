@@ -1,6 +1,6 @@
 {
   "name": "navigium-learn",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Lern-App für lateinische Vokabeln (Cursus) und die Fabeln des Phaedrus",
   "private": true,
   "scripts": {

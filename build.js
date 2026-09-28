@@ -13,6 +13,8 @@ const parts = {
   __WORDS__:  'words.js',
   __FABLES__: 'fables.js',
   __GRAM__:   'gram.js',
+  __PARTS__:  'parts.js',
+  __WISSEN__: 'wissen.js',
 };
 
 let html = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');

@@ -176,6 +176,7 @@ b,strong{font-weight:500}
 .fablist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:18px}
 .fab{border:0;text-align:left;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);border-radius:20px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px}
 .fab:hover{box-shadow:inset 0 0 0 1px var(--violet)}
+.fab .cand.top{background:color-mix(in srgb,var(--easy) 20%,transparent);color:var(--easy);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--easy) 50%,transparent)}
 .fab .cand{align-self:flex-start;font-size:11px;letter-spacing:.02em;padding:4px 10px;border-radius:999px;margin-bottom:8px;background:color-mix(in srgb,var(--gold) 20%,transparent);color:var(--gold);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 45%,transparent)}
 .fab .ref{font-size:12px;color:var(--ink-3)}
 .fab .la{font-family:var(--serif);font-size:26px;line-height:1.05;font-weight:500}
@@ -367,6 +368,52 @@ dialog p{color:var(--ink-2);margin:6px 0 20px;font-size:14.5px}
 .bigopts button b{display:block}
 .bigopts button span{font-size:13px;color:var(--ink-3)}
 .bigopts button[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px var(--violet);background:color-mix(in srgb,var(--violet) 14%,transparent)}
+/* grammar reference */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:22px}
+.wcard{border:0;text-align:left;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);border-radius:20px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px;transition:box-shadow .2s}
+.wcard:hover{box-shadow:inset 0 0 0 1px var(--violet),0 0 30px -12px var(--violet)}
+.wcard .t{font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.05}
+.wcard .s{font-size:12.5px;color:var(--ink-3)}
+.wcard .m{font-size:12.5px;color:var(--gold);margin-top:8px}
+.whead{padding:22px 0 4px}
+.whead .sub{font-size:13px;color:var(--ink-3)}
+.whead h1{font-family:var(--serif);font-weight:500;font-size:clamp(42px,9vw,76px);line-height:1;margin:6px 0 14px}
+.whead .kurz{color:var(--ink-2);font-size:clamp(16px,2.3vw,18.5px);max-width:60ch;margin:0}
+.wtoc{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 0}
+.wtoc a{font-size:12.5px;color:var(--ink-2);text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.wsec{margin-top:38px;scroll-margin-top:76px}
+.wsec>h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,4.4vw,32px);margin:0 0 6px}
+.wsec p{color:var(--ink-2);max-width:68ch;margin:10px 0 0}
+.wsec b{color:var(--ink)}
+i.lat{font-family:var(--serif);font-style:italic;font-size:1.14em;color:var(--ink)}
+.tscroll{overflow-x:auto;margin-top:12px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);-webkit-overflow-scrolling:touch}
+table.gt{border-collapse:collapse;width:100%;font-size:14px;min-width:440px}
+.gt th{text-align:left;font-weight:500;color:var(--ink-3);font-size:12.5px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--line);white-space:nowrap}
+.gt td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.gt td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+.gt tr:last-child td{border-bottom:0}
+.tscroll + .tnote{margin-top:10px}
+@media (max-width:600px){.tscroll::after{content:"";display:block}.wsec .tscroll{margin-right:-20px;border-radius:16px 0 0 16px}}
+.tnote{font-size:13.5px;color:var(--ink-3);margin-top:10px;max-width:68ch}
+.tipbox{margin:12px 0 0;padding:4px 18px;border-radius:20px;background:color-mix(in srgb,var(--gold) 8%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold) 35%,transparent)}
+.tipbox li{list-style:none;position:relative;padding:13px 0 13px 28px;border-bottom:1px solid color-mix(in srgb,var(--gold) 18%,transparent);color:var(--ink-2);font-size:15px}
+.tipbox li:last-child{border-bottom:0}
+.tipbox li::before{content:"";position:absolute;left:3px;top:20px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.wex{display:block;width:100%;border:0;text-align:left;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);border-radius:18px;padding:16px 18px;margin-top:10px}
+.wex:hover{box-shadow:inset 0 0 0 1px var(--violet)}
+.wex .lat{font-family:var(--serif);font-size:clamp(19px,3.4vw,22px);line-height:1.35}
+.wex .tr{font-size:14px;color:var(--cyan);margin-top:4px}
+.wex .wnote{display:block;font-size:14.5px;color:var(--ink-2);margin-top:10px}
+.wex .src{display:block;font-size:12px;color:var(--ink-3);margin-top:8px}
+ol.steps{list-style:none;padding:0;margin:12px 0 0;counter-reset:st}
+ol.steps li{counter-increment:st;position:relative;padding:11px 0 11px 42px;border-bottom:1px solid var(--line);color:var(--ink-2);max-width:72ch}
+ol.steps li::before{content:counter(st);position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;color:var(--violet);box-shadow:inset 0 0 0 1.5px var(--violet)}
+ul.errs{list-style:none;padding:0;margin:12px 0 0}
+ul.errs li{position:relative;padding:10px 0 10px 30px;border-bottom:1px solid var(--line);color:var(--ink-2);max-width:72ch}
+ul.errs li::before{content:"";position:absolute;left:4px;top:18px;width:12px;height:2px;background:var(--again);transform:rotate(45deg);box-shadow:0 0 0 0 transparent}
+ul.errs li::after{content:"";position:absolute;left:4px;top:18px;width:12px;height:2px;background:var(--again);transform:rotate(-45deg)}
+.wlink{margin-top:10px;color:var(--gold);padding-left:0}
+.wlink:hover{background:none;color:var(--ink)}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:60}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -462,6 +509,7 @@ dialog p{color:var(--ink-2);margin:6px 0 20px;font-size:14.5px}
     <p class="lead" id="fabLead"></p>
   </section>
   <div class="feature">
+    <button class="panel" id="goParts"><span class="h3">Partizip-Training</span><p>PPP, PPA und PC an jeder Stelle im Fabeltext bestimmen – Form, Zeitverhältnis und Übersetzung.</p><span class="go" id="partsN"></span></button>
     <button class="panel" id="goExam"><span class="h3">Probeklausur</span><p>Übersetzung, Grammatik und Interpretation zu einer Fabel – mit Erwartungshorizont und Note.</p><span class="go" id="examLast">45 Minuten · starten</span></button>
     <button class="panel" id="goWissen"><span class="h3">Wissens-Check</span><p>15 Fragen zu Phaedrus, Äsop, Senar, Promythion, Epimythion und Fabel-Aufbau.</p><span class="go" id="wissenBest">starten</span></button>
   </div>
@@ -527,13 +575,26 @@ dialog p{color:var(--ink-2);margin:6px 0 20px;font-size:14.5px}
     <h1 class="h-hero" style="font-size:clamp(52px,11vw,110px)">Grammatik</h1>
     <p class="lead" id="graLead"></p>
   </section>
-  <section class="section" style="padding-top:34px">
+  <section class="section" style="padding-top:34px;padding-bottom:0">
+    <h2 class="h2" style="text-align:left">Verstehen</h2>
+    <p class="muted" style="margin:8px 0 0;max-width:60ch">Erklärung, Formentabellen, Beispiele aus den Fabeln und Eselsbrücken – pro Thema eine Seite.</p>
+    <div class="wgrid" id="wGrid"></div>
+  </section>
+  <section class="section" style="padding-top:44px">
+    <h2 class="h2" style="text-align:left;margin-bottom:18px">Üben</h2>
     <div class="tools"><span>Themen</span><span><button class="ghost" id="gtAll">Alle</button><button class="ghost" id="gtNone">Keine</button></span></div>
     <div class="grid wide" id="gTopics"></div>
     <div class="tools" style="margin-top:22px"><span>Fabeln</span><span><button class="ghost" id="gfAll">Alle</button><button class="ghost" id="gfNone">Keine</button></span></div>
     <div class="grid wide" id="gFabs"></div>
     <div class="dock"><div class="dock-in"><div class="txt" id="gDock"></div><button class="pill primary" id="gStart">10 Aufgaben</button></div></div>
   </section>
+</div></main>
+
+<!-- WISSEN -->
+<main id="v-wiki" class="view hidden"><div class="wrap" style="max-width:860px">
+  <div class="back-link"><button class="ghost" id="wBack">← Grammatik</button></div>
+  <div id="wBody"></div>
+  <div class="dock"><div class="dock-in"><div class="txt" id="wDock"></div><button class="pill primary" id="wPractice">Üben</button></div></div>
 </div></main>
 
 <!-- QUIZ -->
@@ -567,6 +628,8 @@ dialog p{color:var(--ink-2);margin:6px 0 20px;font-size:14.5px}
 __WORDS__
 __FABLES__
 __GRAM__
+__PARTS__
+__WISSEN__
 const THEMES=["Familie & Menschen","Körper & Gesundheit","Natur & Orte","Gefühle & Charakter","Sprechen & Denken","Zeit & Zahlen","Krieg & Militär","Staat, Politik & Recht","Götter & Religion"];
 const POS=["Verben","Substantive","Adjektive","Pronomen","Kleine Wörter","Wendungen"];
 const MIN=60e3, DAY=864e5, KEY="navigium-learn-v1";
@@ -590,6 +653,12 @@ const CURSUS={};WORDS.forEach(w=>w.la.split("/").forEach(x=>{const k=strip(x.rep
 let S={cards:{},settings:{newPer:20,dir:"la"},sel:{mode:"lessons",lessons:[1,2,3],fables:["f1"],themes:[],pos:[]},log:{},gram:{},gsel:{t:[...GTOPICS],f:FABLES.map(f=>f.id)},wissen:null,exams:[],profile:{goal:20,lesson:3,exam:null,onboarded:false},blitzBest:0};
 try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);S={...S,...p,settings:{...S.settings,...p.settings},sel:{...S.sel,...p.sel},gsel:{...S.gsel,...(p.gsel||{})},profile:{...S.profile,...(p.profile||{})}}}}catch(e){}
 if(!S.settings.answer)S.settings.answer="flip";
+(function migrate(){const OLD="Nebensätze & Konjunktiv";
+  if(S.gram&&S.gram[OLD]){S.gram["Nebensätze"]=S.gram[OLD];delete S.gram[OLD]}
+  let changed=false;
+  if(S.gsel&&S.gsel.t&&S.gsel.t.includes(OLD)){S.gsel.t=S.gsel.t.filter(x=>x!==OLD);["Nebensätze","Konjunktiv"].forEach(x=>{if(!S.gsel.t.includes(x))S.gsel.t.push(x)});changed=true}
+  if(changed||(S.gram&&S.gram["Nebensätze"]))try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+})();
 
 /* ---------- persistence ---------- */
 let dbDoc=null,saving=false,pending=false,saveT=null;
@@ -780,18 +849,36 @@ let lastY=0;addEventListener("scroll",()=>{if(Math.abs(scrollY-lastY)>60){lastY=
 document.addEventListener("click",e=>{if(!e.target.closest("#sheet")&&!e.target.closest(".w"))hideSheet()});
 
 const CAND={f9:7,f10:5,f11:4,f12:4,f13:4,f15:4,f16:3,f14:3,f17:3,f18:3,f8:1};
-FABLES.forEach(f=>{if(CAND[f.id])f.cand=CAND[f.id]});
+// Partizip-Bilanz pro Fabel aus PARTS ableiten
+function partStats(id){const l=PARTS[id]||[];let ppa=0,ppp=0,pfa=0,pc=0,aa=0;
+  for(const p of l){const k=p[2],r=p[3];if(k==="PPA")ppa++;if(k==="PPP")ppp++;if(k==="PFA")pfa++;
+    if(r.includes("PC"))pc++;if(r.includes("AblAbs"))aa++}
+  return {ppa,ppp,pfa,pc,aa,tot:ppa+ppp+pfa}}
+FABLES.forEach(f=>{
+  f.vok=CAND[f.id]||0;
+  f.ps=partStats(f.id);
+  // Der Lehrer hat PPP, PPA und PC angekündigt: alle drei müssen vorkommen
+  f.deckt = f.ps.ppa>0 && f.ps.ppp>0 && f.ps.pc>0;
+  const n=f.v.reduce((a,p)=>a+(p[0].match(/[A-Za-zÀ-ž]+/g)||[]).length,0);
+  f.imFenster = n>=50 && n<=70;
+  f.score = f.imFenster ? f.vok + f.ps.ppa*1.5 + f.ps.ppp + f.ps.pc*1.5 : 0;
+  if(f.imFenster && (f.vok>0 || f.ps.tot>0)) f.cand=f.vok;
+});
 function fwords(f){return f.v.reduce((a,p)=>a+(p[0].match(/[A-Za-zÀ-ž]+/g)||[]).length,0)}
 function renderFab(){
   const nc=FABLES.filter(f=>f.cand).length;
   $("fabLead").textContent=`${FABLES.length} Fabeln mit Übersetzung, Aufbau, Stilmitteln und Interpretationsfragen. ${nc} davon sind Klausur-Kandidaten: 50–70 Wörter und Vokabeln aus Lektion 26–30.`;
 
-  const sorted=[...FABLES].sort((a,b)=>(b.cand||0)-(a.cand||0)||fwords(a)-fwords(b));
+  const sorted=[...FABLES].sort((a,b)=>(b.deckt?1:0)-(a.deckt?1:0)||b.score-a.score||fwords(a)-fwords(b));
   $("fablist").innerHTML=sorted.map(f=>{const qs=GRAM.filter(g=>g.f===f.id).length,n=fwords(f);
-    const tag=f.cand?`<span class="cand" title="${f.cand} Vokabeln aus Lektion 26–30">Klausur-Kandidat · ${f.cand}× L26–30</span>`:"";
+    const ps=f.ps,teile=[];
+    if(ps.ppa)teile.push(ps.ppa+"× PPA");if(ps.ppp)teile.push(ps.ppp+"× PPP");if(ps.pc)teile.push(ps.pc+"× PC");if(ps.aa)teile.push(ps.aa+"× Abl.abs.");
+    const tag=f.deckt?`<span class="cand top" title="Enthält PPP, PPA und PC – 50–70 Wörter">Top-Kandidat · ${f.vok}× L26–30 · ${teile.join(" · ")}</span>`
+      :f.imFenster?`<span class="cand">Im Wortfenster · ${f.vok}× L26–30${teile.length?" · "+teile.join(" · "):""}</span>`:"";
     return `<button class="fab" data-f="${f.id}">${tag}<span class="ref">Buch ${f.ref} · ${n} Wörter · ${qs} Grammatikaufgaben</span><span class="la">${esc(f.la)}</span><span class="de">${esc(f.de)}</span><span class="mor">${esc(f.moral)}</span></button>`}).join("");
   $("fablist").querySelectorAll(".fab").forEach(b=>b.onclick=()=>openFable(b.dataset.f));
   $("prolog").innerHTML=PROLOG.v.map((v,i)=>`<li><span class="n">${i+1}</span><div class="lat">${esc(v[0])}</div><div class="tr">${esc(v[1])}</div></li>`).join("");
+  $("partsN").textContent=`${partQuestions().length} Aufgaben zu ${Object.values(PARTS).flat().filter(p=>p[2]!=="—").length} Partizipstellen · starten`;
   const last=S.exams[S.exams.length-1];$("examLast").textContent=last?`Letzte Note: ${last.note} (${FAB[last.fid].la}) · neu starten`:"45 Minuten · starten";
   $("wissenBest").textContent=S.wissen!=null?`Bestes Ergebnis: ${S.wissen} von ${WISSEN.length} · starten`:"starten";
 }
@@ -800,7 +887,7 @@ function openFable(id){RF=FAB[id];RT="text";show("read");$("rRef").textContent=`
 function renderReader(){const f=RF;document.querySelectorAll("#rTabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.r===RT));let h="";
   if(RT==="text"){h=`<div class="toolbar"><span>Tippe auf ein Wort für die Vokabelhilfe, auf die Versnummer für die Übersetzung.</span><button class="ghost" id="trAll">Übersetzung einblenden</button></div><ol class="verses" id="vs">${f.v.map((v,i)=>`<li><button class="n" data-i="${i}" aria-label="Übersetzung Vers ${i+1}">${i+1}</button><div class="lat">${tokenize(v[0],f.id)}</div><div class="tr">${esc(v[1])}</div></li>`).join("")}</ol><div class="moral">${esc(f.moral)}</div>`}
   if(RT==="aufbau")h=`<div class="tbl">${f.aufbau.map(a=>`<div class="it"><div class="k">${esc(a[0])}<small>V. ${a[1]}</small></div><div><p style="margin:0">${esc(a[2])}</p></div></div>`).join("")}</div><div class="moral">${esc(f.moral)}</div>`;
-  if(RT==="stil")h=`<div class="tbl">${f.stil.map(a=>`<div class="it"><div class="k">${esc(a[0])}</div><div><div class="src">${esc(a[1])}</div><p>${esc(a[2])}</p></div></div>`).join("")}</div><p class="muted" style="font-size:13.5px;margin-top:16px">Klausur-Tipp: Stilmittel immer mit Fachbegriff, Textstelle und Wirkung nennen.</p>`;
+  if(RT==="stil")h=`<div class="tbl">${f.stil.map(a=>`<div class="it"><div class="k">${esc(a[0])}</div><div><div class="src">${esc(a[1])}</div><p>${esc(a[2])}</p></div></div>`).join("")}</div><p class="muted" style="font-size:13.5px;margin-top:16px">Klausur-Tipp: Stilmittel immer mit Fachbegriff, Textstelle und Wirkung nennen.</p><button class="ghost wlink" data-wiki="stil">Alle Stilmittel mit Eselsbrücken</button>`;
   if(RT==="fragen")h=f.fragen.map((q,i)=>`<div class="qa"><div class="q">${i+1}. ${esc(q[0])}</div><button class="pill secondary" data-qa="${i}" style="padding:9px 16px;font-size:13.5px">Musterlösung zeigen</button><div class="a hidden" id="qa${i}">${esc(q[1])}</div></div>`).join("");
   if(RT==="voc")h=`<ul class="vlist">${f.voc.map(v=>`<li><span class="l">${esc(v[1])}</span> <span class="f">${esc(v[2])}</span><div class="d">${esc(v[3])}</div></li>`).join("")}</ul>`;
   $("rBody").innerHTML=h;wireWords($("rBody"));
@@ -813,13 +900,58 @@ $("rGram").onclick=()=>startQuiz(shuffle(GRAM.filter(g=>g.f===RF.id)).map(normG)
 $("rVoc").onclick=()=>{S.sel.mode="fables";S.sel.fables=[RF.id];save();tab("vok");startSession()};
 $("rExam").onclick=()=>startExam(RF.id);
 $("goExam").onclick=()=>examSetup();
+/* ---------- Partizip-Training ---------- */
+const PTYP=["PPP","PPA","PFA","Gerundivum"];
+const PROLLE=[["PC","Participium coniunctum (bezogen auf ein Satzglied)"],
+  ["AblAbs","Ablativus absolutus (eigenes Bezugswort im Ablativ)"],
+  ["attr","attributiv (wie ein Adjektiv beim Substantiv)"],
+  ["Perf","Teil einer Perfekt-Passiv-Form"],
+  ["AcI","Teil eines AcI"]];
+function partQuestions(ids){
+  const out=[];
+  for(const id of (ids||FABLES.map(f=>f.id))){
+    const list=PARTS[id]||[], fab=FAB[id]; if(!fab)continue;
+    for(const [w,v,k,r,erkl] of list){
+      if(k==="—")continue;
+      const dep=r.includes("Dep");
+      // Frage 1: Welche Form?
+      out.push({ctx:{f:id,v:v-1,h:w},t:"Partizipien",
+        q:`Welche Partizipform ist „${w}“?`,
+        o:PTYP, a:PTYP.indexOf(k),
+        x:`${k}. ${erkl}${dep?" Achtung: Deponens – die Form ist passiv, die Bedeutung aktiv.":""}`});
+      // Frage 2: Zeitverhältnis
+      if(k==="PPP"||k==="PPA"||k==="PFA"){
+        const zv=["gleichzeitig","vorzeitig","nachzeitig"];
+        const soll=k==="PPA"?0:k==="PPP"?1:2;
+        out.push({ctx:{f:id,v:v-1,h:w},t:"Partizipien",
+          q:`Welches Zeitverhältnis drückt „${w}“ zum Prädikat aus?`,
+          o:zv, a:soll,
+          x:`${k} = ${zv[soll]}. Merke: PPA gleichzeitig, PPP vorzeitig, PFA nachzeitig.${dep?" Bei Deponentien bleibt das PPP vorzeitig, ist aber aktiv zu übersetzen.":""}`});
+      }
+      // Frage 3: Rolle im Satz (nur wo eindeutig)
+      const kern=r.replace("+Dep","");
+      const idx=PROLLE.findIndex(p=>p[0]===kern);
+      if(idx>=0){
+        out.push({ctx:{f:id,v:v-1,h:w},t:"Partizipien",
+          q:`Welche Funktion hat „${w}“ in diesem Vers?`,
+          o:PROLLE.map(p=>p[1]), a:idx,
+          x:`${PROLLE[idx][1]}. ${erkl}`});
+      }
+    }
+  }
+  return out;
+}
+$("goParts").onclick=()=>startQuiz(shuffle(partQuestions()).slice(0,15),"gram",()=>tab("fab"));
 $("goWissen").onclick=()=>startQuiz(shuffle(WISSEN.map(w=>({q:w[0],o:w[1],a:w[2],x:w[3]}))),"wissen",()=>tab("fab"));
 
 /* ---------- grammar ---------- */
-function normG(g){return{ctx:{f:g.f,v:g.v,h:g.h},q:g.q,o:g.o,a:g.a,x:g.x,t:g.t}}
-function gPool(){return GRAM.filter(g=>S.gsel.t.includes(g.t)&&S.gsel.f.includes(g.f))}
+function normG(g){return{ctx:g.f?{f:g.f,v:g.v,h:g.h}:null,q:g.q,o:g.o,a:g.a,x:g.x,t:g.t,w:g.w}}
+function gPool(){return GRAM.filter(g=>S.gsel.t.includes(g.t)&&(!g.f||S.gsel.f.includes(g.f)))}
 function renderGra(){
-  $("graLead").textContent=`${GRAM.length} Aufgaben direkt am Phaedrus-Text. Jede Antwort wird erklärt – so wie du sie in der Klassenarbeit begründen musst.`;
+  $("graLead").textContent=`${GWISSEN.length} Erklärseiten und ${GRAM.length} Aufgaben direkt am Phaedrus-Text. Jede Antwort wird erklärt – so wie du sie in der Klassenarbeit begründen musst.`;
+  $("wGrid").innerHTML=GWISSEN.map(p=>{const tips=p.s.reduce((a,x)=>a+(x.tips?x.tips.length:0),0),ex=p.s.reduce((a,x)=>a+(x.ex?x.ex.length:0),0);
+    return `<button class="wcard" data-w="${p.id}"><span class="t">${esc(p.t)}</span><span class="s">${esc(p.sub)}</span><span class="m">${tips} Eselsbrücken · ${ex} Fabel-Beispiele</span></button>`}).join("");
+  $("wGrid").querySelectorAll(".wcard").forEach(b=>b.onclick=()=>openWiki(b.dataset.w,"gra"));
 
   const box=$("gTopics");box.innerHTML=GTOPICS.map(t=>{const n=GRAM.filter(g=>g.t===t).length,st=S.gram[t];const pct=st&&st.n?Math.round(st.c/st.n*100):null;
     return `<button class="chip" data-t="${esc(t)}" aria-pressed="${S.gsel.t.includes(t)}"><div class="num">${esc(t)}</div><div class="sub">${n} Aufgaben${pct!=null?` · ${pct} % richtig`:""}</div><div class="bar"><i style="width:${pct||0}%"></i></div></button>`}).join("");
@@ -832,6 +964,43 @@ function renderGra(){
 $("gtAll").onclick=()=>{S.gsel.t=[...GTOPICS];save();renderGra()};$("gtNone").onclick=()=>{S.gsel.t=[];save();renderGra()};
 $("gfAll").onclick=()=>{S.gsel.f=FABLES.map(f=>f.id);save();renderGra()};$("gfNone").onclick=()=>{S.gsel.f=[];save();renderGra()};
 $("gStart").onclick=()=>startQuiz(shuffle(gPool()).slice(0,10).map(normG),"gram",()=>tab("gra"));
+
+/* ---------- Grammatik-Wissen ---------- */
+function fmtTxt(t){return esc(t||"").replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/_(.+?)_/g,'<i class="lat">$1</i>')}
+const WMAP={"Partizipien":"part","Ablativus absolutus":"ablabs","AcI & NcI":"aci","Konjunktiv":"konjform","Nebensätze":"neben","Kasusfunktionen":"kasus","Formen":"formen","Stilmittel":"stil"};
+function wikiFor(it){const id=it.w||WMAP[it.t];return GWISSEN.find(p=>p.id===id)||null}
+let WFROM="gra",WCUR=null;
+function verseMark(fid,v,h){const f=FAB[fid];let line=esc(f.v[v][0]);
+  h.split(" … ").forEach(p=>{const e=esc(p);line=line.replace(e,`<mark class="hl">${e}</mark>`)});return line}
+function openWiki(id,from){const p=GWISSEN.find(x=>x.id===id);if(!p)return;WCUR=p;WFROM=from||"gra";
+  const slug=(h,i)=>"ws-"+i;
+  let h=`<header class="whead"><div class="sub">${esc(p.sub)}</div><h1>${esc(p.t)}</h1><p class="kurz">${fmtTxt(p.kurz)}</p>
+    <nav class="wtoc">${p.s.map((x,i)=>`<a href="#${slug(x.h,i)}">${esc(x.h)}</a>`).join("")}</nav></header>`;
+  p.s.forEach((x,i)=>{h+=`<section class="wsec" id="${slug(x.h,i)}"><h3>${esc(x.h)}</h3>`;
+    if(x.p)h+=x.p.map(t=>`<p>${fmtTxt(t)}</p>`).join("");
+    if(x.table)h+=`<div class="tscroll"><table class="gt" style="min-width:${Math.max(440,x.table.head.length*180)}px"><thead><tr>${x.table.head.map(c=>`<th>${fmtTxt(c)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r=>`<tr>${r.map(c=>`<td>${fmtTxt(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    if(x.note)h+=`<p class="tnote">${fmtTxt(x.note)}</p>`;
+    if(x.tips)h+=`<ul class="tipbox">${x.tips.map(t=>`<li>${fmtTxt(t)}</li>`).join("")}</ul>`;
+    if(x.steps)h+=`<ol class="steps">${x.steps.map(t=>`<li>${fmtTxt(t)}</li>`).join("")}</ol>`;
+    if(x.list)h+=`<ul class="errs">${x.list.map(t=>`<li>${fmtTxt(t)}</li>`).join("")}</ul>`;
+    if(x.ex)h+=x.ex.map(([fid,v,hl,note])=>{const f=FAB[fid];return `<button class="wex" data-f="${fid}"><div class="lat">${verseMark(fid,v,hl)}</div><div class="tr">${esc(f.v[v][1])}</div><div class="wnote">${fmtTxt(note)}</div><span class="src">${esc(f.la)}, V. ${v+1} · Fabel öffnen</span></button>`}).join("");
+    h+=`</section>`});
+  $("wBody").innerHTML=h;
+  $("wBody").querySelectorAll(".wex").forEach(b=>b.onclick=()=>{tab("fab");openFable(b.dataset.f)});
+  $("wBody").querySelectorAll(".wtoc a").forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.scrollIntoView({behavior:"smooth"})});
+  const n=wikiPool(p).length;
+  $("wDock").innerHTML=`<b>${n} Aufgaben</b> zu ${esc(p.quiz)}`;
+  $("wPractice").textContent=WFROM==="quiz"?"Zurück zur Aufgabe":"10 Aufgaben üben";
+  $("wBack").textContent=WFROM==="quiz"?"← Zurück zur Aufgabe":"← Grammatik";
+  show("wiki");
+}
+function wikiPool(p){let pool=GRAM.filter(g=>g.t===p.quiz).map(normG);
+  if(p.quiz==="Partizipien")pool=pool.concat(partQuestions());return pool}
+function wikiBack(){if(WFROM==="quiz"&&QZ){show("quiz");document.body.classList.add("focus")}else tab("gra")}
+$("wBack").onclick=wikiBack;
+$("wPractice").onclick=()=>{if(WFROM==="quiz"&&QZ){wikiBack();return}
+  const p=WCUR;startQuiz(shuffle(wikiPool(p)).slice(0,10),"gram",()=>openWiki(p.id,"gra"))};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-wiki]");if(b)openWiki(b.dataset.wiki,"gra")});
 
 /* ---------- quiz engine ---------- */
 let QZ=null;
@@ -848,14 +1017,16 @@ function qAnswer(oi){if(QZ.answered)return;QZ.answered=true;const it=QZ.items[QZ
   $("qBody").querySelectorAll(".opts button").forEach(b=>{const o=+b.dataset.oi;b.disabled=true;if(o===it.a)b.classList.add("right");else if(o===oi)b.classList.add("wrong")});
   if(ok)QZ.right++;else QZ.wrong.push(it);
   if(it.t){const s=S.gram[it.t]||{c:0,n:0};s.n++;if(ok)s.c++;S.gram[it.t]=s;save()}
-  $("qFb").innerHTML=`<div class="expl"><b>${ok?"Richtig.":"Nicht ganz."}</b> ${esc(it.x)}</div><div class="qnext"><button class="pill primary" id="qNext">${QZ.i+1<QZ.items.length?"Weiter":"Auswertung"}</button></div>`;
+  const wp=wikiFor(it);
+  $("qFb").innerHTML=`<div class="expl"><b>${ok?"Richtig.":"Nicht ganz."}</b> ${fmtTxt(it.x)}${wp?`<br><button class="ghost wlink" id="qWiki">Regel nachlesen: ${esc(wp.t)}</button>`:""}</div><div class="qnext"><button class="pill primary" id="qNext">${QZ.i+1<QZ.items.length?"Weiter":"Auswertung"}</button></div>`;
+  if(wp)$("qWiki").onclick=()=>openWiki(wp.id,"quiz");
   $("qNext").onclick=qNext;$("qNext").focus({preventScroll:true})}
 function qNext(){QZ.i++;if(QZ.i<QZ.items.length)qRender();else qDone()}
 function qDone(){const n=QZ.items.length;$("qScore").textContent=`${QZ.right}/${n}`;
   if(QZ.kind==="wissen"&&n===WISSEN.length){S.wissen=Math.max(S.wissen||0,QZ.right);save()}
   const pct=QZ.right/n;$("qTxt").textContent=pct===1?"Alles richtig. Das sitzt.":pct>=.7?"Stark. Schau dir die Fehler unten noch einmal an.":"Die Erklärungen unten zeigen dir, worauf es ankommt. Wiederhole die Fehler direkt.";
   $("qRetry").classList.toggle("hidden",!QZ.wrong.length);
-  $("qWrong").innerHTML=QZ.wrong.length?`<h3 class="h3" style="margin-bottom:8px">Deine Fehler</h3>`+QZ.wrong.map(it=>`<div class="qa">${it.ctx?`<div class="lat" style="font-family:var(--serif);font-size:19px">${esc(FAB[it.ctx.f].v[it.ctx.v][0])}</div>`:""}<div class="q" style="margin-top:4px">${esc(it.q)}</div><div class="a"><b style="color:var(--easy)">${esc(it.o[it.a])}</b><br>${esc(it.x)}</div></div>`).join(""):"";
+  $("qWrong").innerHTML=QZ.wrong.length?`<h3 class="h3" style="margin-bottom:8px">Deine Fehler</h3>`+QZ.wrong.map(it=>`<div class="qa">${it.ctx?`<div class="lat" style="font-family:var(--serif);font-size:19px">${esc(FAB[it.ctx.f].v[it.ctx.v][0])}</div>`:""}<div class="q" style="margin-top:4px">${esc(it.q)}</div><div class="a"><b style="color:var(--easy)">${esc(it.o[it.a])}</b><br>${fmtTxt(it.x)}</div></div>`).join(""):"";
   show("qdone")}
 $("qRetry").onclick=()=>startQuiz(shuffle(QZ.wrong.map(w=>({...w}))),QZ.kind,QZ.back);
 $("qBack").onclick=()=>QZ.back();$("qQuit").onclick=()=>{if(QZ&&QZ.i>0&&QZ.answered){qDone()}else QZ.back()};

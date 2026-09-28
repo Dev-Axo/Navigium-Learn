@@ -27,9 +27,12 @@ keine externen Abhängigkeiten zur Laufzeit.
 - Wissens-Check: 15 Fragen zu Phaedrus, Äsop, Senar, Promythion und Epimythion
 
 **Grammatik**
-- 149 Aufgaben direkt am Fabeltext, die Stelle wird im Vers markiert
-- Themen: Formen, Partizipien, Ablativus absolutus, AcI & NcI, Nebensätze & Konjunktiv, Kasusfunktionen, Stilmittel
-- Jede Antwort wird erklärt, Fehler lassen sich gezielt wiederholen
+- 10 Erklärseiten: Partizipien, Participium coniunctum, Ablativus absolutus, AcI & NcI, Konjunktiv (Bildung), Konjunktiv (Verwendung), Nebensätze, Kasusfunktionen, Verbformen & Deponentien, Stilmittel
+- Jede Seite mit Formentabellen, Beispielen aus den Fabeln, Eselsbrücken und typischen Fehlern – insgesamt 22 Tabellen, 48 Eselsbrücken, 55 Fabel-Beispiele
+- 191 Aufgaben, die meisten direkt am Fabeltext, die Stelle wird im Vers markiert
+- Themen: Formen, Partizipien, Ablativus absolutus, AcI & NcI, Konjunktiv, Nebensätze, Kasusfunktionen, Stilmittel
+- Partizip-Training mit 161 Aufgaben zu 55 geprüften Partizipstellen
+- Jede Antwort wird erklärt und verlinkt auf die passende Erklärseite
 
 **Fortschritt**
 - Tagesziel, Serie, Aktivitätskalender, Fälligkeitsvorschau für 7 Tage
@@ -77,7 +80,9 @@ src/
   data/
     words.js          1.032 Cursus-Vokabeln (siehe DATEN.md)
     fables.js         18 Fabeln mit Übersetzung, Analyse, Vokabeln
-    gram.js           149 Grammatikaufgaben
+    gram.js           191 Grammatikaufgaben
+    parts.js          55 von Hand geprüfte Partizipstellen
+    wissen.js         10 Grammatik-Erklärseiten
 tools/
   count_fables.py     Zählt Wörter pro Fabel
   match_vocab.py      Gleicht Fabelwortschatz gegen Lektionen ab
