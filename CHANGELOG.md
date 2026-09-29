@@ -1,5 +1,14 @@
 # Änderungen
 
+## 1.2.1
+
+**Mobile Optimierungen**
+- Layout-Überlauf auf sehr schmalen Smartphones behoben
+- Größere Touch-Ziele für Navigation, Filter und Auswahlaktionen
+- Schnellaktionen, Auswahlfelder und Lern-Dock passen sich kleinen Displays an
+- Kompaktere Navigation im Querformat
+- Dialoge und Wortkarten bleiben auch auf kurzen Displays scrollbar und bedienbar
+
 ## 1.2.0
 
 **Grammatik-Erklärungen**
