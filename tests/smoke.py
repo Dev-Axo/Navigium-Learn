@@ -19,16 +19,25 @@ words = json.loads(arr("WORDS", "words.js"))
 if len(words) != 1032: fail(f"Erwartet 1032 Cursus-Wörter, gefunden {len(words)}")
 
 node = subprocess.run(
-    ["node", "-e", """
+    ["node", "-e", r"""
 const fs=require('fs');
 const f=fs.readFileSync('src/data/fables.js','utf8');
-const F=eval(f.slice(f.indexOf('const FABLES=[')+13, f.indexOf('\\n];', f.indexOf('const FABLES=['))+2));
+const F=eval(f.slice(f.indexOf('const FABLES=[')+13, f.indexOf('\n];', f.indexOf('const FABLES=['))+2));
 const g=fs.readFileSync('src/data/gram.js','utf8');
-const G=eval(g.slice(g.indexOf('const GRAM=[')+11, g.indexOf('\\n];', g.indexOf('const GRAM=['))+2));
+const G=eval(g.slice(g.indexOf('const GRAM=[')+11, g.indexOf('\n];', g.indexOf('const GRAM=['))+2));
+const w=fs.readFileSync('src/data/wissen.js','utf8');
+const W=eval(w.slice(w.indexOf('const GWISSEN=[')+14, w.lastIndexOf(']')+1));
+new Function('FABLES','GRAM','GWISSEN',fs.readFileSync('src/data/morphology.js','utf8'))(F,G,W);
 const ids=new Set(F.map(x=>x.id));
 const bad=[];
+const P=new Function(fs.readFileSync('src/data/parts.js','utf8')+';return PARTS')();
+for(const [fid,parts] of Object.entries(P))for(const [word,verse] of parts){
+ if(!F.find(x=>x.id===fid)?.v[verse-1]?.[0].includes(word))bad.push('Partizipstelle fehlt: '+fid+' '+word);
+}
+if(P.f19?.length!==5)bad.push('Partizipien der neuen Fabel fehlen');
 const T=eval(g.match(/const GTOPICS=(\[[^\]]*\])/)[1]);
 for(const q of G){
+  if(q.w&&!W.some(p=>p.id===q.w))bad.push('Wissensseite fehlt: '+q.w);
   if(!T.includes(q.t))bad.push('unbekanntes Thema '+q.t);
   if(q.a<0||q.a>=q.o.length)bad.push((q.f||'allgemein')+': Antwortindex ungueltig');
   if(!q.f)continue; // allgemeine Aufgabe ohne Fabelvers
@@ -45,8 +54,22 @@ for(const x of F){
   if(x.v.some(p=>!p[0]||!p[1]))bad.push(x.id+': Vers ohne Uebersetzung');
   if(!x.voc.length)bad.push(x.id+': keine Vokabeln');
 }
-const w=fs.readFileSync('src/data/wissen.js','utf8');
-const W=eval(w.slice(w.indexOf('const GWISSEN=[')+14, w.lastIndexOf(']')+1));
+if(new Set(F.map(x=>x.id)).size!==F.length)bad.push('doppelte Fabel-ID');
+if(new Set(W.map(x=>x.id)).size!==W.length)bad.push('doppelte Wissensseiten-ID');
+if(F.find(x=>x.id==='f19')?.v.length!==9)bad.push('neue Fabel fehlt');
+for(const [id,section,row,col,expected] of [
+ ['verb-capio','Indikativ Präsens',1,2,'caperis'],
+ ['verb-amo','Indikativ Futur I',1,2,'amaberis'],
+ ['verb-audio','Indikativ Futur II',5,1,'audiverint'],
+ ['verb-lego','Konjunktiv Plusquamperfekt',3,1,'legissemus'],
+ ['verb-moneo','Indikativ Perfekt',3,2,'moniti sumus'],
+ ['deklinationen','3. Deklination, i-Stamm: mare (Meer, n.)',0,2,'maria']
+ ]){if(W.find(x=>x.id===id)?.s.find(x=>x.h===section)?.table.rows[row][col]!==expected)bad.push('falsche Form '+id+' '+section)}
+for(const id of ['amo','moneo','lego','capio','audio']){
+ const pg=W.find(x=>x.id==='verb-'+id);
+ if(!pg||pg.s.filter(s=>s.h.startsWith('Indikativ')||s.h.startsWith('Konjunktiv')).length!==10)bad.push('unvollstaendige Konjugation '+id);
+ if(G.filter(q=>q.w===pg?.id).length<4)bad.push('Uebungen fehlen '+id);
+}
 let ex=0;
 for(const pg of W){
   if(!T.includes(pg.quiz))bad.push('Wissensseite '+pg.id+': Thema '+pg.quiz+' fehlt');

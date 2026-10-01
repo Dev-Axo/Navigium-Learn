@@ -6,6 +6,11 @@
  * v: Versnummer (1-basiert, wie im Text angezeigt)
  */
 const PARTS={
+f19:[["trahens",2,"PPA","PC","trahere; zur Ameise – „während sie herauszog“"],
+     ["Esuriens",3,"PPA","PC","esurire; zur Grille – „weil sie hungrig war“"],
+     ["cantans",7,"PPA","PC","cantare; zur Grille – „während sie sang“"],
+     ["Ridens",8,"PPA","PC","ridere; zur Ameise – „lachend“"],
+     ["referens",8,"PPA","PC","referre; zur Ameise – „während sie zurücktrug“"]],
 f5:[["tacta",3,"PPP","PC","tangere; zu rana – „vom Neid ergriffen“"],
     ["indignata",9,"PPP","PC+Dep","indignari, Deponens – aktiv: „empört“"],
     ["rupto",10,"PPP","AblAbs","rupto corpore – „mit geplatztem Körper“"]],
@@ -57,7 +62,7 @@ f16:[["deiectum",1,"PPP","attr","deicere – „den niedergestreckten Stier“"]
 f17:[["citatus",4,"PPP","PC","citare; zum Wolf – „als Zeuge herbeigerufen“"],
     ["damnata",6,"PPP","PC","damnare; zum Schaf – „verurteilt“"],
     ["iacentem",8,"PPA","attr","iacere – „den daliegenden Wolf“"]],
-f18:[["defectus",3,"PPP","PC","deficere; zum Löwen – „geschwächt“"],
+f18:[["Defectus",3,"PPP","PC","deficere; zum Löwen – „geschwächt“"],
     ["desertus",3,"PPP","PC","deserere; zum Löwen – „verlassen“"],
     ["trahens",4,"PPA","PC","trahere – „den letzten Atemzug tuend“"],
     ["spumans",5,"PPA","PC","spumare – „schäumend“"],

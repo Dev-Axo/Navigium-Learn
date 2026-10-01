@@ -50,3 +50,9 @@ Erste Fassung.
 **Werkzeuge**
 - Skripte zum Zählen, Abgleichen und Prüfen der Fabeltexte
 - Smoke-Test für Datenintegrität und einen Durchlauf im Browser
+# 1.3.0
+
+- Alle fünf Substantivdeklinationen mit Varianten, Adjektiven und Sonderformen.
+- Alle regulären Konjugationsklassen: Indikativ und Konjunktiv, Aktiv/Passiv, Imperative, Infinitive, Partizipien und Verbalnomina; wichtige unregelmäßige Verben und Deponentien.
+- Die Ameise und die Grille (Appendix 28) mit eigener Übersetzung, Vokabeln, Interpretation und Aufgaben.
+- Passende Formenübungen pro neuer Grammatikseite; mobil horizontal scrollbar.

@@ -682,6 +682,7 @@ __FABLES__
 __GRAM__
 __PARTS__
 __WISSEN__
+__MORPHOLOGY__
 const THEMES=["Familie & Menschen","Körper & Gesundheit","Natur & Orte","Gefühle & Charakter","Sprechen & Denken","Zeit & Zahlen","Krieg & Militär","Staat, Politik & Recht","Götter & Religion"];
 const POS=["Verben","Substantive","Adjektive","Pronomen","Kleine Wörter","Wendungen"];
 const MIN=60e3, DAY=864e5, KEY="navigium-learn-v1";
@@ -1000,9 +1001,9 @@ $("goWissen").onclick=()=>startQuiz(shuffle(WISSEN.map(w=>({q:w[0],o:w[1],a:w[2]
 function normG(g){return{ctx:g.f?{f:g.f,v:g.v,h:g.h}:null,q:g.q,o:g.o,a:g.a,x:g.x,t:g.t,w:g.w}}
 function gPool(){return GRAM.filter(g=>S.gsel.t.includes(g.t)&&(!g.f||S.gsel.f.includes(g.f)))}
 function renderGra(){
-  $("graLead").textContent=`${GWISSEN.length} Erklärseiten und ${GRAM.length} Aufgaben direkt am Phaedrus-Text. Jede Antwort wird erklärt – so wie du sie in der Klassenarbeit begründen musst.`;
+  $("graLead").textContent=`${GWISSEN.length} Erklärseiten mit vollständigen Formentabellen und ${GRAM.length} Aufgaben zu Formen und Phaedrus-Texten. Jede Antwort wird erklärt.`;
   $("wGrid").innerHTML=GWISSEN.map(p=>{const tips=p.s.reduce((a,x)=>a+(x.tips?x.tips.length:0),0),ex=p.s.reduce((a,x)=>a+(x.ex?x.ex.length:0),0);
-    return `<button class="wcard" data-w="${p.id}"><span class="t">${esc(p.t)}</span><span class="s">${esc(p.sub)}</span><span class="m">${tips} Eselsbrücken · ${ex} Fabel-Beispiele</span></button>`}).join("");
+    return `<button class="wcard" data-w="${p.id}"><span class="t">${esc(p.t)}</span><span class="s">${esc(p.sub)}</span><span class="m">${p.forms?`${p.s.length} Abschnitte · ${wikiPool(p).length} Übungen`:`${tips} Eselsbrücken · ${ex} Fabel-Beispiele`}</span></button>`}).join("");
   $("wGrid").querySelectorAll(".wcard").forEach(b=>b.onclick=()=>openWiki(b.dataset.w,"gra"));
 
   const box=$("gTopics");box.innerHTML=GTOPICS.map(t=>{const n=GRAM.filter(g=>g.t===t).length,st=S.gram[t];const pct=st&&st.n?Math.round(st.c/st.n*100):null;
@@ -1042,11 +1043,11 @@ function openWiki(id,from){const p=GWISSEN.find(x=>x.id===id);if(!p)return;WCUR=
   $("wBody").querySelectorAll(".wtoc a").forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.scrollIntoView({behavior:"smooth"})});
   const n=wikiPool(p).length;
   $("wDock").innerHTML=`<b>${n} Aufgaben</b> zu ${esc(p.quiz)}`;
-  $("wPractice").textContent=WFROM==="quiz"?"Zurück zur Aufgabe":"10 Aufgaben üben";
+  $("wPractice").textContent=WFROM==="quiz"?"Zurück zur Aufgabe":`${Math.min(10,n)} Aufgaben üben`;
   $("wBack").textContent=WFROM==="quiz"?"← Zurück zur Aufgabe":"← Grammatik";
   show("wiki");
 }
-function wikiPool(p){let pool=GRAM.filter(g=>g.t===p.quiz).map(normG);
+function wikiPool(p){let pool=GRAM.filter(g=>g.w===p.id||(!g.w&&g.t===p.quiz&&!p.forms)).map(normG);
   if(p.quiz==="Partizipien")pool=pool.concat(partQuestions());return pool}
 function wikiBack(){if(WFROM==="quiz"&&QZ){show("quiz");document.body.classList.add("focus")}else tab("gra")}
 $("wBack").onclick=wikiBack;

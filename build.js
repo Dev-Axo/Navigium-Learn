@@ -15,6 +15,7 @@ const parts = {
   __GRAM__:   'gram.js',
   __PARTS__:  'parts.js',
   __WISSEN__: 'wissen.js',
+  __MORPHOLOGY__: 'morphology.js',
 };
 
 let html = fs.readFileSync(path.join(SRC, 'index.html'), 'utf8');
